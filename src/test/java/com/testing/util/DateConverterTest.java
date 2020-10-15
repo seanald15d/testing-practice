@@ -1,9 +1,6 @@
 package com.testing.util;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.text.ParseException;
 import java.time.DateTimeException;
@@ -17,11 +14,19 @@ class DateConverterTest {
         dateConverter = new DateConverter();
     }
 
-    @Test
-    @DisplayName("Test DateTimeException for bad date param")
-    void testConvertDateEpochToDateStringErrors() {
-        Assertions.assertThrows(DateTimeException.class, () -> dateConverter.convertDateEpochToDateString(12335436L));
-        Assertions.assertThrows(DateTimeException.class, () -> dateConverter.convertDateEpochToDateString(System.currentTimeMillis() + 86400000));
+    @Nested
+    class ConvertDateEpochToString {
+        @Test
+        @DisplayName("Test DateTimeException for too long ago date")
+        void testConvertDateEpochToDateStringPastError() {
+            Assertions.assertThrows(DateTimeException.class, () -> dateConverter.convertDateEpochToDateString(12335436L));
+        }
+
+        @Test
+        @DisplayName("Test DateTimeException for date too far in the future")
+        void testConvertDateEpochToDateStringFutureError() {
+            Assertions.assertThrows(DateTimeException.class, () -> dateConverter.convertDateEpochToDateString(System.currentTimeMillis() + 86400000));
+        }
     }
 
     @Test
