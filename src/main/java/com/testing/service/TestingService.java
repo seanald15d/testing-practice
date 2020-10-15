@@ -4,12 +4,13 @@ import com.testing.repository.TestingRepository;
 
 import java.sql.SQLException;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class TestingService {
 
-    private TestingRepository repository;
+    private final TestingRepository repository;
 
     public TestingService(TestingRepository repository) {
         this.repository = repository;
@@ -21,7 +22,7 @@ public class TestingService {
                     .filter(stuff -> stuff.length() < 5)
                     .collect(Collectors.toList());
         } catch (SQLException e) {
-            return Arrays.asList();
+            return Collections.emptyList();
         }
     }
 }

@@ -6,7 +6,7 @@ import java.util.List;
 
 public class TestingResource {
 
-    private TestingService service;
+    private final TestingService service;
 
     public TestingResource(TestingService service) {
         this.service = service;
