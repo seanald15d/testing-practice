@@ -22,38 +22,7 @@ class TestingServiceTest {
     @InjectMocks
     TestingService service;
 
-    @Test
-    void testSuccess() {
-        // Setup mock scenario
-        try {
-            Mockito.when(repository.getStuff()).thenReturn(Arrays.asList("A", "B", "CDEFGHIJK", "12345", "1234"));
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        // Execute the service that uses the mocked repository
-        List<String> stuff = service.getStuffWithLengthLessThanFive();
-
-        // Validate the response
-        Assertions.assertNotNull(stuff);
-        Assertions.assertEquals(3, stuff.size());
-    }
-
-    @Test
-    void testException() {
-        // Setup mock scenario
-        try {
-            Mockito.when(repository.getStuff()).thenThrow(new SQLException("Connection Exception"));
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        // Execute the service that uses the mocked repository
-        List<String> stuff = service.getStuffWithLengthLessThanFive();
-
-        // Validate the response
-        Assertions.assertNotNull(stuff);
-        Assertions.assertEquals(0, stuff.size());
-    }
+    // TODO: Follow the JUnit 5 tutorial part 3 to construct your service layer test
+    // https://www.infoworld.com/article/3537563/junit-5-tutorial-part-1-unit-testing-with-junit-5-mockito-and-hamcrest.html?page=3
 
 }

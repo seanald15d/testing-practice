@@ -14,24 +14,9 @@ class DateConverterTest {
         dateConverter = new DateConverter();
     }
 
-    @Nested
-    class ConvertDateEpochToString {
-        @Test
-        @DisplayName("Test DateTimeException for too long ago date")
-        void testConvertDateEpochToDateStringPastError() {
-            Assertions.assertThrows(DateTimeException.class, () -> dateConverter.convertDateEpochToDateString(12335436L));
-        }
+    // TODO: Add test for success cases
 
-        @Test
-        @DisplayName("Test DateTimeException for date too far in the future")
-        void testConvertDateEpochToDateStringFutureError() {
-            Assertions.assertThrows(DateTimeException.class, () -> dateConverter.convertDateEpochToDateString(System.currentTimeMillis() + 86400000));
-        }
-    }
+    // TODO: Add tests for DateTimeException
 
-    @Test
-    @DisplayName("Test parse exception for badly formatted date")
-    void testConvertStringToDateThrowsError() {
-        Assertions.assertThrows(ParseException.class, () -> dateConverter.convertStringToDate("2016-01-31 23:59"));
-    }
+    // TODO: Add test for badly formatted date string
 }

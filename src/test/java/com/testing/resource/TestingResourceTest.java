@@ -21,21 +21,5 @@ class TestingResourceTest {
     @InjectMocks
     TestingResource resource;
 
-    @Nested
-    class DoDateRetrieval {
-        @Test
-        void testSuccess() throws IllegalAccessException {
-            Mockito.when(service.getStuffWithLengthLessThanFive()).thenReturn(Arrays.asList("A", "B", "1234"));
-
-            List<String> response = resource.doDataRetrieval("admin");
-
-            Assertions.assertNotNull(response);
-            Assertions.assertEquals(3, response.size());
-        }
-
-        @Test
-        void testThrowsIllegalAccess() {
-            Assertions.assertThrows(IllegalAccessException.class, () -> resource.doDataRetrieval("user"));
-        }
-    }
+    // TODO: Add tests for succses and illegal access cases
 }
