@@ -22,7 +22,22 @@ class TestingServiceTest {
     @InjectMocks
     TestingService service;
 
-    // TODO: Follow the JUnit 5 tutorial part 3 to construct your service layer test
-    // https://www.infoworld.com/article/3537563/junit-5-tutorial-part-1-unit-testing-with-junit-5-mockito-and-hamcrest.html?page=3
+    @Test
+    void testSuccess() throws SQLException {
+        // Setup mock scenario
+
+        // Execute the service that uses the mocked repository
+
+        // Validate the response
+    }
+
+    @Test
+    void testException() throws SQLException {
+        // Setup mock scenario
+
+        // Execute the service that uses the mocked repository
+
+        // Validate the response
+    }
 
 }

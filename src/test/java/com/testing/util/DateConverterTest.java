@@ -14,9 +14,23 @@ class DateConverterTest {
         dateConverter = new DateConverter();
     }
 
-    // TODO: Add test for success cases
-
     // TODO: Add tests for DateTimeException
+    @Test
+    @DisplayName("Test DateTimeException for too long ago date")
+    void testConvertDateEpochToDateStringPastError() {
+
+    }
+
+    @Test
+    @DisplayName("Test DateTimeException for date too far in future")
+    void testConvertDateEpochToDateStringFutureError() {
+
+    }
 
     // TODO: Add test for badly formatted date string
+    @Test
+    @DisplayName("Test ParseException for bad formatted date")
+    void testConvertStringToDateThrowsError() {
+
+    }
 }

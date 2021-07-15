@@ -21,5 +21,20 @@ class TestingResourceTest {
     @InjectMocks
     TestingResource resource;
 
-    // TODO: Add tests for succses and illegal access cases
+    @Nested
+    class DoDataRetrieval {
+        @Test
+        void testSuccess() throws IllegalAccessException {
+            // Setup mock scenario
+
+            // Execute the resource method that uses the mocked service
+
+            // Validate the response
+        }
+
+        @Test
+        void testThrowsIllegalAccess() {
+            // validate that bad input throws IllegalAccessException
+        }
+    }
 }
