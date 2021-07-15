@@ -23,13 +23,9 @@ class TestingServiceTest {
     TestingService service;
 
     @Test
-    void testSuccess() {
+    void testSuccess() throws SQLException {
         // Setup mock scenario
-        try {
-            Mockito.when(repository.getStuff()).thenReturn(Arrays.asList("A", "B", "CDEFGHIJK", "12345", "1234"));
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        Mockito.when(repository.getStuff()).thenReturn(Arrays.asList("A", "B", "CDEFGHIJK", "12345", "1234"));
 
         // Execute the service that uses the mocked repository
         List<String> stuff = service.getStuffWithLengthLessThanFive();
@@ -40,13 +36,9 @@ class TestingServiceTest {
     }
 
     @Test
-    void testException() {
+    void testException() throws SQLException {
         // Setup mock scenario
-        try {
-            Mockito.when(repository.getStuff()).thenThrow(new SQLException("Connection Exception"));
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        Mockito.when(repository.getStuff()).thenThrow(new SQLException("Connection Exception"));
 
         // Execute the service that uses the mocked repository
         List<String> stuff = service.getStuffWithLengthLessThanFive();

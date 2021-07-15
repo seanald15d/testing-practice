@@ -22,7 +22,7 @@ class TestingResourceTest {
     TestingResource resource;
 
     @Nested
-    class DoDateRetrieval {
+    class DoDataRetrieval {
         @Test
         void testSuccess() throws IllegalAccessException {
             Mockito.when(service.getStuffWithLengthLessThanFive()).thenReturn(Arrays.asList("A", "B", "1234"));
